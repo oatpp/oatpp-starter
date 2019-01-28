@@ -1,4 +1,5 @@
-# oatpp-starter
+# oatpp-starter [![Build Status](https://dev.azure.com/lganzzzo/lganzzzo/_apis/build/status/oatpp.oatpp-starter?branchName=master)](https://dev.azure.com/lganzzzo/lganzzzo/_build/latest?definitionId=10?branchName=master)
+
 oatpp simple-API Starter template project.
 config=(multithreading plus blocking-IO)
 

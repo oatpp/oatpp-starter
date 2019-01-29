@@ -6,8 +6,6 @@ project(${project_name})
 
 set(CMAKE_CXX_STANDARD 11)
 
-include_directories(src)
-
 add_library(${project_name}-lib
         src/AppComponent.hpp
         src/Logger.hpp
@@ -24,6 +22,8 @@ target_link_libraries(${project_name}-lib
         PUBLIC oatpp::oatpp
         PUBLIC oatpp::oatpp-test
 )
+
+target_include_directories(${project_name}-lib PUBLIC src)
 
 ## add executables
 
@@ -43,5 +43,4 @@ set_target_properties(${project_name}-lib ${project_name}-exe ${project_name}-te
         CXX_STANDARD 11
         CXX_EXTENSIONS OFF
         CXX_STANDARD_REQUIRED ON
-        LINKER_LANGUAGE CXX
 )

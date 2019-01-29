@@ -1,55 +1,53 @@
 # oatpp-starter [![Build Status](https://dev.azure.com/lganzzzo/lganzzzo/_apis/build/status/oatpp.oatpp-starter?branchName=master)](https://dev.azure.com/lganzzzo/lganzzzo/_build/latest?definitionId=10?branchName=master)
 
-oatpp simple-API Starter template project.
-config=(multithreading plus blocking-IO)
+oatpp simple-API starter project. 
 
-## Build and run
+More about oat++:
+- Website: [https://oatpp.io](https://oatpp.io)
+- Docs: [https://oatpp.io/docs/start](https://oatpp.io/docs/start)
+- Oat++ Repo: [https://github.com/oatpp/oatpp](https://github.com/oatpp/oatpp)
 
-1) Git-Clone examples repo:
-```
-git clone https://github.com/oatpp/oatpp-examples
-```
+## Overview
 
-2) Get oatpp-lib (it is included as git submodule)
-```
-git submodule init
-git submodule update --remote --merge
+### Project layout
+
 ```
 
-3) CD to crud example-project
-```
-cd crud/
-```
-4) Build project
-```
-./build_app.sh
-```
-or (same as in build_app.sh)
-```
-g++ -std=gnu++11 \
--pthread \
-`find "./lib/oatpp/" -type f -name *.cpp` \
-`find "./src/" -type f -name *.cpp` \
--I "./lib" \
--I "./src" \
--D OATPP_USE_TARGET \
--D OATPP_TARGET_APP \
--D OATPP_DISABLE_ENV_OBJECT_COUNTERS \
--O2 \
--Wall \
--o run_app
+- CMakeLists.txt          // project loader script. load and build dependencies 
+- main/                   // main project directory
+    |
+    |- CMakeLists.txt     // projects CMakeLists.txt
+    |- src/               // source folder
+    |- test/              // test folder
 
-chmod +x run_app
 ```
-5) Run app
 ```
-./run_app
+- src/
+    |
+    |- controller/              // Folder containing UserController where all endpoints are declared
+    |- dto/                     // DTOs are declared here
+    |- AppComponent.hpp         // Service config
+    |- Logger.hpp               // Application Logger
+    |- App.cpp                  // main() is here
+    
 ```
 
-enjoy!
+---
 
-## More
-If you can't build app.- probably you need to [install build-essential](https://www.google.com.ua/search?q=install+build-essentials)
+### Build and Run
 
-## Xcode, MAC
-Xcode project included
+#### Using CMake
+
+```
+$ mkdir build && cd build
+$ cmake ..
+$ make run        ## Download, build, and install all dependencies. Run project
+
+```
+
+#### In Docker
+
+```
+$ docker build -t oatpp-starter .
+$ docker run -p 8000:8000 -t oatpp-starter
+```

@@ -33,6 +33,7 @@
 
 # custom build
 build/
+main/build/
 
 # idea
 .idea/

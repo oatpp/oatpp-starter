@@ -11,9 +11,9 @@ public:
   Test() : oatpp::test::UnitTest("[MyTest]")
   {}
 
-  bool onRun() override {
+  void onRun() override {
     OATPP_LOGD(TAG, "Hello Test");
-    return true;
+    // TODO write correct  tests
   }
 };
 

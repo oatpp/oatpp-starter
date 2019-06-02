@@ -2,38 +2,47 @@ cmake_minimum_required(VERSION 3.1)
 
 set(project_name my-project) ## rename your project here
 
-project(${project_name}-loader)
+project(${project_name})
 
-include(ExternalProject)
+set(CMAKE_CXX_STANDARD 11)
 
-#############################################################################
-## load all dependencies
-
-ExternalProject_Add(oatpp
-        GIT_REPOSITORY "https://github.com/oatpp/oatpp.git"
-        GIT_TAG origin/master
-        CMAKE_ARGS -DOATPP_BUILD_TESTS=OFF
+add_library(${project_name}-lib
+        src/AppComponent.hpp
+        src/controller/MyController.cpp
+        src/controller/MyController.hpp
+        src/dto/MyDto.hpp
 )
 
-ExternalProject_Add(main
-        SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/main
-        INSTALL_COMMAND cmake -E echo "SKIP INSTALL"
-        DEPENDS oatpp
+## link libs
+
+find_package(oatpp 0.19.4 REQUIRED)
+
+target_link_libraries(${project_name}-lib
+        PUBLIC oatpp::oatpp
+        PUBLIC oatpp::oatpp-test
 )
 
-#############################################################################
-## make run command
+target_include_directories(${project_name}-lib PUBLIC src)
 
-ExternalProject_Get_Property(main BINARY_DIR)
+## add executables
 
-add_custom_target(run
-        COMMAND ${BINARY_DIR}/${project_name}-exe
-        DEPENDS main
-        WORKING_DIRECTORY ${BINARY_DIR}
+add_executable(${project_name}-exe
+        src/App.cpp
 )
+target_link_libraries(${project_name}-exe ${project_name}-lib)
+add_dependencies(${project_name}-exe ${project_name}-lib)
 
-#############################################################################
-## make test command
+add_executable(${project_name}-test
+        test/tests.cpp
+)
+target_link_libraries(${project_name}-test ${project_name}-lib)
+add_dependencies(${project_name}-test ${project_name}-lib)
+
+set_target_properties(${project_name}-lib ${project_name}-exe ${project_name}-test PROPERTIES
+        CXX_STANDARD 11
+        CXX_EXTENSIONS OFF
+        CXX_STANDARD_REQUIRED ON
+)
 
 enable_testing()
-add_test(all-tests ${BINARY_DIR}/${project_name}-test)
+add_test(project-tests ${project_name}-test)

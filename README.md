@@ -12,14 +12,10 @@ More about oat++:
 ### Project layout
 
 ```
-
-- CMakeLists.txt          // project loader script. load and build dependencies 
-- main/                   // main project directory
-    |
-    |- CMakeLists.txt     // projects CMakeLists.txt
-    |- src/               // source folder
-    |- test/              // test folder
-
+- CMakeLists.txt                        // projects CMakeLists.txt
+- src/                                  // source folder
+- test/                                 // test folder
+- utility/install-oatpp-modules.sh      // utility script to install required oatpp-modules.
 ```
 ```
 - src/
@@ -36,12 +32,19 @@ More about oat++:
 
 ### Build and Run
 
+**Requires** 
+
+- `oatpp` module installed. You may run `utility/install-oatpp-modules.sh` 
+script to install required oatpp modules.
+
+
 #### Using CMake
 
 ```
 $ mkdir build && cd build
 $ cmake ..
-$ make run        ## Download, build, and install all dependencies. Run project
+$ make 
+$ ./my-project-exe  # - run application.
 
 ```
 

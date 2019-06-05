@@ -16,7 +16,7 @@ See more:
 |- CMakeLists.txt                        // projects CMakeLists.txt
 |- src/
 |    |
-|    |- controller/                      // Folder containing UserController where all endpoints are declared
+|    |- controller/                      // Folder containing MyController where all endpoints are declared
 |    |- dto/                             // DTOs are declared here
 |    |- AppComponent.hpp                 // Service config
 |    |- App.cpp                          // main() is here

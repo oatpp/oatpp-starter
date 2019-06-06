@@ -6,8 +6,8 @@
 //  Copyright © 2018 oatpp. All rights reserved.
 //
 
-#ifndef MyDto_hpp
-#define MyDto_hpp
+#ifndef DTOs_hpp
+#define DTOs_hpp
 
 #include "oatpp/core/data/mapping/type/Object.hpp"
 #include "oatpp/core/macro/codegen.hpp"
@@ -18,9 +18,9 @@
  *  Data Transfer Object. Object containing fields only.
  *  Used in API for serialization/deserialization and validation
  */
-class MyDto : public oatpp::data::mapping::type::Object {
+class MessageDto : public oatpp::data::mapping::type::Object {
   
-  DTO_INIT(MyDto, Object)
+  DTO_INIT(MessageDto, Object)
   
   DTO_FIELD(Int32, statusCode);
   DTO_FIELD(String, message);
@@ -29,4 +29,4 @@ class MyDto : public oatpp::data::mapping::type::Object {
 
 #include OATPP_CODEGEN_END(DTO)
 
-#endif /* MyDto_hpp */
+#endif /* DTOs_hpp */

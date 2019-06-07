@@ -3,12 +3,8 @@
 
 #include <iostream>
 
-namespace {
-
 void runTests() {
   OATPP_RUN_TEST(MyControllerTest);
-}
-
 }
 
 int main() {

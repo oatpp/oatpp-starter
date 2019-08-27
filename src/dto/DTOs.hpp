@@ -18,9 +18,9 @@
  *  Data Transfer Object. Object containing fields only.
  *  Used in API for serialization/deserialization and validation
  */
-class MessageDto : public oatpp::data::mapping::type::Object {
+class MyDto : public oatpp::data::mapping::type::Object {
   
-  DTO_INIT(MessageDto, Object)
+  DTO_INIT(MyDto, Object)
   
   DTO_FIELD(Int32, statusCode);
   DTO_FIELD(String, message);

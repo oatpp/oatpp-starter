@@ -40,14 +40,14 @@ void MyControllerTest::onRun() {
     auto client = MyApiTestClient::createShared(requestExecutor, objectMapper);
 
     /* Call server API */
-    /* Call hello endpoint of MyController */
-    auto response = client->getHello();
+    /* Call root endpoint of MyController */
+    auto response = client->getRoot();
 
     /* Assert that server responds with 200 */
     OATPP_ASSERT(response->getStatusCode() == 200);
 
     /* Read response body as MessageDto */
-    auto message = response->readBodyToDto<MessageDto>(objectMapper.get());
+    auto message = response->readBodyToDto<MyDto>(objectMapper.get());
 
     /* Assert that received message is as expected */
     OATPP_ASSERT(message);

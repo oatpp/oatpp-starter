@@ -34,8 +34,8 @@ public:
  */
 #include OATPP_CODEGEN_BEGIN(ApiController)
   
-  ENDPOINT("GET", "/hello", root) {
-    auto dto = MessageDto::createShared();
+  ENDPOINT("GET", "/", root) {
+    auto dto = MyDto::createShared();
     dto->statusCode = 200;
     dto->message = "Hello World!";
     return createDtoResponse(Status::CODE_200, dto);

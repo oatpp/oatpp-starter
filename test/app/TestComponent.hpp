@@ -25,7 +25,7 @@ public:
    * Create oatpp virtual network interface for test networking
    */
   OATPP_CREATE_COMPONENT(std::shared_ptr<oatpp::network::virtual_::Interface>, virtualInterface)([] {
-    return oatpp::network::virtual_::Interface::createShared("virtualhost");
+    return oatpp::network::virtual_::Interface::obtainShared("virtualhost");
   }());
 
   /**

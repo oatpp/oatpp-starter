@@ -1,7 +1,3 @@
-//
-// Created by Leonid  on 2019-06-07.
-//
-
 #ifndef MyControllerTest_hpp
 #define MyControllerTest_hpp
 

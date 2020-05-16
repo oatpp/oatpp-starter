@@ -1,7 +1,3 @@
-//
-// Created by Leonid  on 2019-06-07.
-//
-
 #include "MyControllerTest.hpp"
 
 #include "controller/MyController.hpp"

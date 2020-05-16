@@ -1,11 +1,3 @@
-//
-//  MyController.hpp
-//  web-starter-project
-//
-//  Created by Leonid on 2/12/18.
-//  Copyright © 2018 oatpp. All rights reserved.
-//
-
 #ifndef MyController_hpp
 #define MyController_hpp
 
@@ -14,6 +6,8 @@
 #include "oatpp/web/server/api/ApiController.hpp"
 #include "oatpp/core/macro/codegen.hpp"
 #include "oatpp/core/macro/component.hpp"
+
+#include OATPP_CODEGEN_BEGIN(ApiController) //<-- Begin Codegen
 
 /**
  * Sample Api Controller.
@@ -29,11 +23,6 @@ public:
   {}
 public:
   
-/**
- *  Begin ENDPOINTs generation ('ApiController' codegen)
- */
-#include OATPP_CODEGEN_BEGIN(ApiController)
-  
   ENDPOINT("GET", "/", root) {
     auto dto = MyDto::createShared();
     dto->statusCode = 200;
@@ -43,11 +32,8 @@ public:
   
   // TODO Insert Your endpoints here !!!
   
-/**
- *  Finish ENDPOINTs generation ('ApiController' codegen)
- */
-#include OATPP_CODEGEN_END(ApiController)
-  
 };
+
+#include OATPP_CODEGEN_BEGIN(ApiController) //<-- End Codegen
 
 #endif /* MyController_hpp */

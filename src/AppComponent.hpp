@@ -1,11 +1,3 @@
-//
-//  AppComponent.hpp
-//  oatpp-web-starter
-//
-//  Created by Leonid on 3/2/18.
-//  Copyright © 2018 lganzzzo. All rights reserved.
-//
-
 #ifndef AppComponent_hpp
 #define AppComponent_hpp
 

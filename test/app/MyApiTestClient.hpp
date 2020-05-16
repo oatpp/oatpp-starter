@@ -1,6 +1,3 @@
-//
-// Created by Leonid on 2019-06-06.
-//
 
 #ifndef MyApiTestClient_hpp
 #define MyApiTestClient_hpp

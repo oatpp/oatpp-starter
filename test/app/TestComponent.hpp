@@ -1,7 +1,3 @@
-//
-// Created by Leonid  on 2019-06-07.
-//
-
 #ifndef TestComponent_htpp
 #define TestComponent_htpp
 

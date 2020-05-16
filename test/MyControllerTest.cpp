@@ -47,7 +47,7 @@ void MyControllerTest::onRun() {
 
     /* Assert that received message is as expected */
     OATPP_ASSERT(message);
-    OATPP_ASSERT(message->statusCode->getValue() == 200);
+    OATPP_ASSERT(message->statusCode == 200);
     OATPP_ASSERT(message->message == "Hello World!");
 
   }, std::chrono::minutes(10) /* test timeout */);

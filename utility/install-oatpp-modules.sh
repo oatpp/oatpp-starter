@@ -16,8 +16,8 @@ cd $MODULE_NAME
 mkdir build
 cd build
 
-cmake ..
-make install
+cmake -DOATPP_BUILD_TESTS=OFF -DCMAKE_BUILD_TYPE=Release ..
+make install -j 6
 
 cd ../../
 

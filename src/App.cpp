@@ -25,7 +25,7 @@ void run() {
   /* Create server which takes provided TCP connections and passes them to HTTP connection handler */
   oatpp::network::Server server(connectionProvider, connectionHandler);
 
-  /* Priny info about server port */
+  /* Print info about server port */
   OATPP_LOGI("MyApp", "Server running on port %s", connectionProvider->getProperty("port").getData());
 
   /* Run server */

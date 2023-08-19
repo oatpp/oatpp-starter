@@ -28,16 +28,16 @@ public:
    * Create server ConnectionProvider of oatpp virtual connections for test
    */
   OATPP_CREATE_COMPONENT(std::shared_ptr<oatpp::network::ServerConnectionProvider>, serverConnectionProvider)([] {
-    OATPP_COMPONENT(std::shared_ptr<oatpp::network::virtual_::Interface>, interface);
-    return oatpp::network::virtual_::server::ConnectionProvider::createShared(interface);
+    OATPP_COMPONENT(std::shared_ptr<oatpp::network::virtual_::Interface>, _interface);
+    return oatpp::network::virtual_::server::ConnectionProvider::createShared(_interface);
   }());
 
   /**
    * Create client ConnectionProvider of oatpp virtual connections for test
    */
   OATPP_CREATE_COMPONENT(std::shared_ptr<oatpp::network::ClientConnectionProvider>, clientConnectionProvider)([] {
-    OATPP_COMPONENT(std::shared_ptr<oatpp::network::virtual_::Interface>, interface);
-    return oatpp::network::virtual_::client::ConnectionProvider::createShared(interface);
+    OATPP_COMPONENT(std::shared_ptr<oatpp::network::virtual_::Interface>, _interface);
+    return oatpp::network::virtual_::client::ConnectionProvider::createShared(_interface);
   }());
 
   /**

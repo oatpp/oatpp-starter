@@ -3,7 +3,7 @@
 #define MyApiTestClient_hpp
 
 #include "oatpp/web/client/ApiClient.hpp"
-#include "oatpp/core/macro/codegen.hpp"
+#include "oatpp/macro/codegen.hpp"
 
 /* Begin Api Client code generation */
 #include OATPP_CODEGEN_BEGIN(ApiClient)

@@ -27,23 +27,26 @@ void MyControllerTest::onRun() {
     OATPP_COMPONENT(std::shared_ptr<oatpp::network::ClientConnectionProvider>, clientConnectionProvider);
 
     /* Get object mapper component */
-    OATPP_COMPONENT(std::shared_ptr<oatpp::data::mapping::ObjectMapper>, objectMapper);
+    OATPP_COMPONENT(std::shared_ptr<oatpp::web::mime::ContentMappers>, contentMappers);
 
     /* Create http request executor for Api Client */
     auto requestExecutor = oatpp::web::client::HttpRequestExecutor::createShared(clientConnectionProvider);
 
     /* Create Test API client */
-    auto client = MyApiTestClient::createShared(requestExecutor, objectMapper);
+    auto client = MyApiTestClient::createShared(requestExecutor, contentMappers->getMapper("application/json"));
 
     /* Call server API */
     /* Call root endpoint of MyController */
     auto response = client->getRoot();
 
     /* Assert that server responds with 200 */
-    OATPP_ASSERT(response->getStatusCode() == 200);
+    OATPP_ASSERT(response)
+    OATPP_ASSERT(response->getStatusCode() == 200)
 
     /* Read response body as MessageDto */
-    auto message = response->readBodyToDto<oatpp::Object<MyDto>>(objectMapper.get());
+    auto message = response->readBodyToDto<oatpp::Object<MyDto>>(
+      contentMappers->selectMapperForContent(response->getHeader("Content-Type"))
+    );
 
     /* Assert that received message is as expected */
     OATPP_ASSERT(message);
